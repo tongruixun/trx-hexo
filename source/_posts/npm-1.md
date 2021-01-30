@@ -24,7 +24,7 @@ function func() {
 }
 
 // 导出模块   
-exports.func = func;
+module.exports.func = func;
 ```
 
 #### 四、发布到npm
@@ -36,7 +36,7 @@ exports.func = func;
 D:\tongruixun\GithubRepository\trx-util>npm adduser
 Username: tongruixun
 Password:
-Email: (this IS public) 1064044342@qq.com
+Email: (this IS public) 1*****4342@qq.com
 Logged in as tongruixun on https://registry.npmjs.org/.
 
 // 查看登录用户
@@ -48,6 +48,19 @@ D:\tongruixun\GithubRepository\trx-util>npm publish
 
 
 ```
+
+#### 五、更新npm模块版本
+
+在`package.json`中修改version字段，然后执行 `npm publish`
+
+版本号没有修改的话会报错
+
+
+版本格式：主版本号.次版本号.修订号，版本号递增规则如下：
+- 主版本号：当你做了不兼容的 API 修改
+- 次版本号：当你做了向下兼容的功能性新增
+- 修订号：当你做了向下兼容的问题修正
+
 
 ## 二、使用
 

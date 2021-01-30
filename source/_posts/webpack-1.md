@@ -10,6 +10,40 @@ tags: webpack
  npm install webpack webpack-cli --save-dev
 ```
 
+## 二、基本配置
+
+```javascript
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+
+module.exports = {
+    entry: './src/index.js',
+    output: {
+        filename: 'main.js',
+        path: path.resolve(__dirname, 'public')
+    },
+    module: {
+      rules: [
+          {
+              test: /\.css$/i,
+              use: ['style-loader', 'css-loader']
+          },{
+              test: /(\.js?|\.jsx?)$/i, // 排除JSON文件
+              use: 'babel-loader',
+              exclude: /node_modules/,
+          },
+      ]
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: "src/index.html"  // 以src下的HTML为模板创建打包后的index.html
+        })
+    ],
+    mode: "development"
+}
+
+```
+
 ## 问题及解决方案
 
 #### 一、 报错信息 `Module not found: Error: Can't resolve 'fs' in 'D:\tongruixun\GithubRepository\toy`
